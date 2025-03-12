@@ -4,12 +4,32 @@
 :root {
 
   --color-link: 58, 84, 215;
+  --color-link-invert:   45, 174, 255 ;
+  --invert-quote-borders: 255,255,255;
 
 }
 
 .max-w-prose {
   max-width: 100ch;
 }
+
+.prose .chroma {
+  border: 2px solid rgb(243, 243, 243); /* Ajusta el grosor y color */
+  padding: 20px; /* Espacio interno para que no se vea pegado */
+  border-radius: 8px; /* Bordes redondeados opcionales */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+}
+
+.prose .chroma:is(.dark *) {
+  border: 2px solid rgb(53, 53, 53); /* Ajusta el grosor y color */
+  background-color:rgb(23, 25, 27)
+
+}
+
+.dark\:prose-invert:is(.dark *) :where(code):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  background-color:rgb(23, 25, 27)
+}
+
 
 .chroma .k,
 .chroma .kd,
