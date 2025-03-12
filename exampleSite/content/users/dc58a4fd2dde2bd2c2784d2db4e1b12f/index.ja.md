@@ -1,8 +1,8 @@
 ---
                 title: "hetong-re4per.com"
-                tags: [個人サイト, ブログ]
+                tags: [パーソナルサイト, ブログ]
                 externalUrl: "https://hetong-re4per.com"
-                weight: 871
+                weight: 831
                 showDate: false
                 showAuthor: false
                 showReadingTime: false

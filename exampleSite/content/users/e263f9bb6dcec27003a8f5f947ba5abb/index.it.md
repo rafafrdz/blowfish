@@ -1,8 +1,8 @@
 ---
                 title: "Academy Customize"
-                tags: [Sito aziendale]
+                tags: [Sito commerciale]
                 externalUrl: "https://acamize.com/"
-                weight: 951
+                weight: 911
                 showDate: false
                 showAuthor: false
                 showReadingTime: false

@@ -1,8 +1,8 @@
 ---
-                title: "omarohn.de"
-                tags: [個人サイト]
-                externalUrl: "https://omarohn.de"
-                weight: 111
+                title: "mrtruongvu.com"
+                tags: [パーソナルサイト, ブログ]
+                externalUrl: "https://mrtruongvu.com"
+                weight: 931
                 showDate: false
                 showAuthor: false
                 showReadingTime: false

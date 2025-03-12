@@ -1,8 +1,8 @@
 ---
                 title: "micheledinelli.github.io"
-                tags: [個人サイト, ポートフォリオサイト, 学術界]
+                tags: [パーソナルサイト, ポートフォリオサイト, アカデミア]
                 externalUrl: "https://micheledinelli.github.io"
-                weight: 821
+                weight: 781
                 showDate: false
                 showAuthor: false
                 showReadingTime: false

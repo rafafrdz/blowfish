@@ -1,8 +1,8 @@
 ---
                 title: "Joshua Blais"
-                tags: [個人サイト, 著者, デジタルガーデン]
+                tags: [パーソナルサイト, 著者, デジタルガーデン]
                 externalUrl: "https://joshblais.com/"
-                weight: 761
+                weight: 721
                 showDate: false
                 showAuthor: false
                 showReadingTime: false

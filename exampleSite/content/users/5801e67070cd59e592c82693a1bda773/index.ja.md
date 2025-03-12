@@ -1,8 +1,8 @@
 ---
                 title: "weaxsey.org"
-                tags: [個人サイト]
+                tags: [パーソナルサイト]
                 externalUrl: "https://weaxsey.org/"
-                weight: 341
+                weight: 321
                 showDate: false
                 showAuthor: false
                 showReadingTime: false

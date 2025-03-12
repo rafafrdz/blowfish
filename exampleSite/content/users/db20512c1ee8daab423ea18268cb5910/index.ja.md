@@ -1,8 +1,8 @@
 ---
                 title: "cdell.io"
-                tags: [個人サイト]
+                tags: [パーソナルサイト]
                 externalUrl: "https://cdell.io"
-                weight: 141
+                weight: 121
                 showDate: false
                 showAuthor: false
                 showReadingTime: false

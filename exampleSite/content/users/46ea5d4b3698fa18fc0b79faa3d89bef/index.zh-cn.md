@@ -1,8 +1,8 @@
 ---
-                title: "kylemalloy.com"
-                tags: [Personal site]
-                externalUrl: "https://kylemalloy.com"
-                weight: 521
+                title: "zzzhome"
+                tags: [个人网站, 博客]
+                externalUrl: "https://zzzhome.cc/"
+                weight: 981
                 showDate: false
                 showAuthor: false
                 showReadingTime: false
@@ -11,3 +11,4 @@
                 showViews: false
                 layoutBackgroundHeaderSpace: false
                 ---
+

@@ -1,8 +1,8 @@
 ---
                 title: "jamiemoxon.tech"
-                tags: [個人サイト]
+                tags: [パーソナルサイト]
                 externalUrl: "https://jamiemoxon.tech"
-                weight: 431
+                weight: 411
                 showDate: false
                 showAuthor: false
                 showReadingTime: false

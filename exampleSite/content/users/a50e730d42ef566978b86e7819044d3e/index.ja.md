@@ -1,8 +1,8 @@
 ---
                 title: "notes.bluesdriveamelia.space"
-                tags: [ブログ, 個人サイト]
+                tags: [ブログ, パーソナルサイト]
                 externalUrl: "https://notes.bluesdriveamelia.space/"
-                weight: 641
+                weight: 601
                 showDate: false
                 showAuthor: false
                 showReadingTime: false

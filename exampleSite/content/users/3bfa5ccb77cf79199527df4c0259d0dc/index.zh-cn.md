@@ -1,8 +1,8 @@
 ---
                 title: "vividscc.com"
-                tags: [企业网站]
+                tags: [商业网站]
                 externalUrl: "https://vividscc.com/"
-                weight: 241
+                weight: 221
                 showDate: false
                 showAuthor: false
                 showReadingTime: false

@@ -1,8 +1,8 @@
 ---
                 title: "adilhyz.github.io"
-                tags: [個人サイト]
+                tags: [パーソナルサイト]
                 externalUrl: "https://adilhyz.github.io"
-                weight: 481
+                weight: 461
                 showDate: false
                 showAuthor: false
                 showReadingTime: false

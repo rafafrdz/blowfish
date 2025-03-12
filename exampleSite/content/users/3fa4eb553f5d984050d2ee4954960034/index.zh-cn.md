@@ -1,8 +1,8 @@
 ---
-                title: "v-y-s.com"
-                tags: [Sito personale]
-                externalUrl: "https://v-y-s.com/"
-                weight: 551
+                title: "Lazy Product Reviews"
+                tags: [个人网站, 博客]
+                externalUrl: "https://lazyproductreviews.com/"
+                weight: 971
                 showDate: false
                 showAuthor: false
                 showReadingTime: false

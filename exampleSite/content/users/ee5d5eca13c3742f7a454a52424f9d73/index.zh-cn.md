@@ -1,8 +1,8 @@
 ---
                 title: "jam.dsg.li"
-                tags: [组织站点]
+                tags: [组织网站]
                 externalUrl: "https://jam.dsg.li"
-                weight: 151
+                weight: 131
                 showDate: false
                 showAuthor: false
                 showReadingTime: false
