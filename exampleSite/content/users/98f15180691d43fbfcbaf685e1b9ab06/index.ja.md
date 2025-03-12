@@ -1,8 +1,8 @@
 ---
                 title: "rdgo.dev"
-                tags: [個人サイト]
+                tags: [パーソナルサイト]
                 externalUrl: "https://rdgo.dev/"
-                weight: 311
+                weight: 291
                 showDate: false
                 showAuthor: false
                 showReadingTime: false

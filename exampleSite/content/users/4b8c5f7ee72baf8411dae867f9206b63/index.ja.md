@@ -1,8 +1,8 @@
 ---
                 title: "Middle of Nowhere"
-                tags: [個人サイト, ブログ]
+                tags: [パーソナルサイト, ブログ]
                 externalUrl: "https://blog.wtcx.dev/"
-                weight: 781
+                weight: 741
                 showDate: false
                 showAuthor: false
                 showReadingTime: false

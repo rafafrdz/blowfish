@@ -1,8 +1,8 @@
 ---
                 title: "nikarashihatsu.github.io"
-                tags: [個人サイト]
+                tags: [パーソナルサイト]
                 externalUrl: "https://nikarashihatsu.github.io/"
-                weight: 351
+                weight: 331
                 showDate: false
                 showAuthor: false
                 showReadingTime: false

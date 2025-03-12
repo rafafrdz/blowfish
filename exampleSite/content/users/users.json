@@ -81,14 +81,6 @@
     ]
   },
   {
-    "title": "omarohn.de",
-    "url": "https://omarohn.de",
-    "source": "n/a",
-    "tags": [
-      "Personal site"
-    ]
-  },
-  {
     "title": "insidemordecai.com",
     "url": "https://insidemordecai.com",
     "source": "n/a",
@@ -409,14 +401,6 @@
     ]
   },
   {
-    "title": "kylemalloy.com",
-    "url": "https://kylemalloy.com",
-    "source": "n/a",
-    "tags": [
-      "Personal site"
-    ]
-  },
-  {
     "title": "joush007.github.io",
     "url": "https://joush007.github.io",
     "source": "n/a",
@@ -427,14 +411,6 @@
   {
     "title": "rejowski.xyz",
     "url": "https://rejowski.xyz/",
-    "source": "n/a",
-    "tags": [
-      "Personal Site"
-    ]
-  },
-  {
-    "title": "v-y-s.com",
-    "url": "https://v-y-s.com/",
     "source": "n/a",
     "tags": [
       "Personal Site"
@@ -805,6 +781,72 @@
     "source": "n/a",
     "tags": [
       "Personal site",
+      "Blog"
+    ]
+  },
+  {
+    "title": "mrtruongvu.com",
+    "url": "https://mrtruongvu.com",
+    "source": "n/a",
+    "tags": [
+      "Personal site",
+      "Blog"
+    ]
+  },
+  {
+    "title": "StepaniaH",
+    "url": "https://stepaniah.me",
+    "source": "n/a",
+    "tags": [
+      "Personal site",
+      "Blog"
+    ]
+  },
+  {
+    "title": "Laterre Dev",
+    "url": "https://laterre.dev/",
+    "source": "https://github.com/laterre39/laterre-dev-blog",
+    "tags": [
+      "Personal site",
+      "Technology Blog",
+      "Software Developer",
+      "Portfolio Site"
+    ]
+  },
+  {
+    "title": "WillHack - service for reality hackers",
+    "url": "https://willhack.top/",
+    "source": "https://github.com/willhack-g/hugo.git",
+    "tags": [
+      "Technology Blog",
+      "News that matters Blog",
+      "AI"
+    ]
+  },
+  {
+    "title": "Lazy Product Reviews",
+    "url": "https://lazyproductreviews.com/",
+    "source": "n/a",
+    "tags": [
+      "Personal site",
+      "Blog"
+    ]
+  },
+  {
+    "title": "zzzhome",
+    "url": "https://zzzhome.cc/",
+    "source": "n/a",
+    "tags": [
+      "Personal site",
+      "Blog"
+    ]
+  },
+  {
+    "title": "Bootleg Coal Rebellion  ",
+    "url": "https://bootlegcoal.com",
+    "source": "n/a",
+    "tags": [
+      "Author Site",
       "Blog"
     ]
   }

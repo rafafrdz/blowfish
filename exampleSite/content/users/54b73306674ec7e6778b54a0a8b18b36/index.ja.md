@@ -1,8 +1,8 @@
 ---
                 title: "Handbook on Teaching Empirical Software Engineering: Online Materials"
-                tags: [本, 学術界]
+                tags: [本, アカデミア]
                 externalUrl: "https://www.emse.education"
-                weight: 911
+                weight: 871
                 showDate: false
                 showAuthor: false
                 showReadingTime: false

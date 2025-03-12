@@ -1,8 +1,8 @@
 ---
-                title: "omarohn.de"
-                tags: [Personal site]
-                externalUrl: "https://omarohn.de"
-                weight: 111
+                title: "Bootleg Coal Rebellion  "
+                tags: [著者サイト, ブログ]
+                externalUrl: "https://bootlegcoal.com"
+                weight: 991
                 showDate: false
                 showAuthor: false
                 showReadingTime: false
@@ -11,3 +11,4 @@
                 showViews: false
                 layoutBackgroundHeaderSpace: false
                 ---
+

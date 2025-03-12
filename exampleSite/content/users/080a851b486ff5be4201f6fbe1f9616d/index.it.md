@@ -1,8 +1,8 @@
 ---
                 title: "merox.dev"
-                tags: [Sito personale, Blog, Documentazione, CV]
+                tags: [Sito personale, Blog, Documentazione, Cv]
                 externalUrl: "https://merox.dev"
-                weight: 941
+                weight: 901
                 showDate: false
                 showAuthor: false
                 showReadingTime: false

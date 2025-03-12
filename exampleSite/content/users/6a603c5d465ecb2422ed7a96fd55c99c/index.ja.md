@@ -1,8 +1,8 @@
 ---
                 title: "technicaldc.github.io"
-                tags: [個人サイト, ブログ]
+                tags: [パーソナルサイト, ブログ]
                 externalUrl: "https://technicaldc.github.io/"
-                weight: 591
+                weight: 551
                 showDate: false
                 showAuthor: false
                 showReadingTime: false

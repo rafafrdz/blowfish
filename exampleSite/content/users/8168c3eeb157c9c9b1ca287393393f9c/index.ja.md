@@ -1,8 +1,8 @@
 ---
                 title: "alanctanner.com"
-                tags: [個人サイト]
+                tags: [パーソナルサイト]
                 externalUrl: "https://alanctanner.com/"
-                weight: 301
+                weight: 281
                 showDate: false
                 showAuthor: false
                 showReadingTime: false

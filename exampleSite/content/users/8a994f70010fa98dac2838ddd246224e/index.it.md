@@ -1,8 +1,8 @@
 ---
-                title: "v-y-s.com"
-                tags: [個人サイト]
-                externalUrl: "https://v-y-s.com/"
-                weight: 551
+                title: "WillHack - service for reality hackers"
+                tags: [Blog tecnologico, Notizie che contano il blog, AI]
+                externalUrl: "https://willhack.top/"
+                weight: 961
                 showDate: false
                 showAuthor: false
                 showReadingTime: false
