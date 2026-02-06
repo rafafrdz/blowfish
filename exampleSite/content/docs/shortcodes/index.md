@@ -251,9 +251,12 @@ Call to action
 | Parameter | Description |
 | --- | --- |
 | `images` | **Required.** A regex string to match image names or URLs. |
+| `captions` | **Optional.** A list of `key:caption` pairs. Keys can be image filenames (for local images) or full URLs (for remote images). |
 | `aspectRatio` | **Optional.** The aspect ratio for the carousel. It is set to `16-9` by default. |
 | `interval` | **Optional.** The interval for the auto-scrooling, specified in milliseconds. Defaults to `2000` (2s) |
 <!-- prettier-ignore-end -->
+
+Captions are matched by key. For local images, use the filename (e.g. `01.jpg`). For remote images, use the full URL.
 
 **Example 1:** 16:9 aspect ratio and verbose list of images
 
@@ -270,6 +273,14 @@ Call to action
 ```
 
 {{< carousel images="gallery/*" aspectRatio="21-9" interval="2500" >}}
+
+**Example 3:** Add captions
+
+```md
+{{</* carousel images="gallery/*" captions="{01.jpg:First image,02.jpg:Second image}" */>}}
+```
+
+{{< carousel images="gallery/*" captions="{01.jpg:First image,02.jpg:Second image}" >}}
 
 <br/><br/><br/>
 

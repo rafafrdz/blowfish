@@ -1,7 +1,7 @@
 {{ $id := delimit (slice "carousel" (partial "functions/uid.html" .) (now.UnixNano)) "-" }}
 {{ $aspect := (split (.Get "aspectRatio") "-") }}
-{{ $aspectx := default "16" (index $aspect  0) }}
-{{ $aspecty := default "9" (index $aspect  1) }}
+{{ $aspectx := default "16" (index $aspect 0) }}
+{{ $aspecty := default "9" (index $aspect 1) }}
 {{ $interval := default "2000" (.Get "interval") }}
 
 {{ $page := .Page.Resources }}
@@ -11,13 +11,29 @@
 {{ $imagesTemp := strings.Split $imagesTemp "," }}
 {{ $images := slice }}
 {{ range $imagesTemp }}
-  {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
-    {{ $images = $images | append (resources.GetRemote .) }}
-  {{ else }}
-    {{ $images = $images | append ($page.Match .) }}
-  {{ end }}
+{{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
+{{ $images = $images | append (dict "resource" (resources.GetRemote .) "key" .) }}
+{{ else }}
+{{ range ($page.Match .) }}
+{{ $images = $images | append (dict "resource" . "key" .Name) }}
+{{ end }}
+{{ end }}
 {{ end }}
 
+{{ $captionsParam := .Get "captions" }}
+{{ $captions := dict }}
+{{ if $captionsParam }}
+{{ $captionsTemp := strings.TrimPrefix "{" $captionsParam }}
+{{ $captionsTemp = strings.TrimSuffix "}" $captionsTemp }}
+{{ range (strings.Split $captionsTemp ",") }}
+{{ $pair := strings.Split . ":" }}
+{{ if ge (len $pair) 2 }}
+{{ $key := strings.TrimSpace (index $pair 0) }}
+{{ $value := strings.TrimSpace (delimit (after 1 $pair) ":") }}
+{{ $captions = merge $captions (dict $key $value) }}
+{{ end }}
+{{ end }}
+{{ end }}
 
 {{ if not .Parent }}<div class="width-patch"></div>{{ end }}
 <div
@@ -26,37 +42,67 @@
   data-twe-carousel-init
   data-twe-ride="carousel"
   data-twe-interval="{{ $interval }}">
-  <div
-    class="absolute right-0 bottom-0 left-0 z-2 mx-[15%] mb-10 flex list-none justify-center p-0"
-    data-twe-carousel-indicators>
-    {{ $num := 0 }}
-    {{ range $images }}
-      <button
-        type="button"
-        data-twe-target="#{{ $id }}"
-        data-twe-slide-to="{{ $num }}"
-        {{ if eq $num 0 }}data-twe-carousel-active aria-current="true"{{ end }}
-        class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-neutral bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
-        aria-label="Slide {{ $num }}"></button>
-      {{ $num = add $num 1 }}
-    {{ end }}
-  </div>
+  <div class="relative">
+    <div
+      class="absolute right-0 bottom-0 left-0 z-2 mx-[15%] mb-10 flex list-none justify-center p-0"
+      data-twe-carousel-indicators>
+      {{ $num := 0 }}
+      {{ range $images }}
+        <button
+          type="button"
+          data-twe-target="#{{ $id }}"
+          data-twe-slide-to="{{ $num }}"
+          {{ if eq $num 0 }}data-twe-carousel-active aria-current="true"{{ end }}
+          class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-neutral bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+          aria-label="Slide {{ $num }}"></button>
+        {{ $num = add $num 1 }}
+      {{ end }}
+    </div>
 
-  <div class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
-    {{ range $index, $image := $images }}
+    <div class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
+      {{ range $index, $image := $images }}
       {{ $hiddenClass := cond (eq $index 0) "" "hidden" }}
+      {{ $resource := index $image "resource" }}
       <div
         class="relative float-left -mr-[100%] {{ $hiddenClass }} w-full transition-transform ease-in-out motion-reduce:transition-none"
-        data-twe-carousel-item
-        style="transition-duration: {{ $interval }}ms;"
-        {{ if eq $index 0 }}data-twe-carousel-active{{ end }}>
-        <div class="single_hero_background" style="aspect-ratio: {{ $aspectx }} / {{ $aspecty }};">
-          <img
-            src="{{ $image.RelPermalink }}"
+        data-twe-carousel-item style="transition-duration: {{ $interval }}ms;" {{ if eq $index 0
+        }}data-twe-carousel-active{{ end }}>
+        <div class="single_hero_background relative overflow-hidden"
+          style="aspect-ratio: {{ $aspectx }} / {{ $aspecty }};">
+          <img src="{{ $resource.RelPermalink }}"
             class="block absolute top-0 object-cover w-full h-full not-prose nozoom"
             alt="carousel image {{ add $index 1 }}">
         </div>
       </div>
+      {{ end }}
+    </div>
+  </div>
+
+  <div class="mt-2">
+    {{ range $index, $image := $images }}
+    {{ $hiddenClass := cond (eq $index 0) "" "hidden" }}
+    {{ $resource := index $image "resource" }}
+    {{ $key := index $image "key" }}
+    {{ $caption := "" }}
+    {{ $candidates := slice }}
+    {{ if $resource }}
+    {{ $candidates = $candidates | append $resource.Name (path.Base $resource.Name) $resource.RelPermalink (path.Base
+    $resource.RelPermalink) }}
+    {{ end }}
+    {{ if $key }}
+    {{ $candidates = $candidates | append $key (path.Base $key) }}
+    {{ end }}
+    {{ range $candidates }}
+    {{ if and (not $caption) . }}
+    {{ with (index $captions .) }}{{ $caption = . }}{{ end }}
+    {{ end }}
+    {{ end }}
+    <div
+      class="{{ $hiddenClass }} text-left text-sm text-neutral-500 not-prose leading-snug [&>p]:m-0"
+      {{ if eq $index 0 }}data-twe-carousel-active{{ end }}
+      data-twe-carousel-item>
+      {{ $caption | markdownify }}
+    </div>
     {{ end }}
   </div>
 
