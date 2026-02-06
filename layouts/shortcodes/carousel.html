@@ -3,20 +3,19 @@
 {{ $aspectx := default "16" (index $aspect  0) }}
 {{ $aspecty := default "9" (index $aspect  1) }}
 {{ $interval := default "2000" (.Get "interval") }}
-{{ $imagesParam := .Get "images" }}
 
-{{ $items := slice }}
 {{ $page := .Page.Resources }}
-{{ $imagesTemp := $imagesParam }}
+{{ $imagesTemp := .Get "images" }}
 {{ $imagesTemp = strings.TrimPrefix "{" $imagesTemp }}
 {{ $imagesTemp = strings.TrimSuffix "}" $imagesTemp }}
 {{ $imagesTemp := strings.Split $imagesTemp "," }}
+{{ $images := slice }}
 {{ range $imagesTemp }}
   {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
-    {{ $items = $items | append (dict "resource" (resources.GetRemote .) "key" .) }}
+    {{ $images = $images | append (dict "resource" (resources.GetRemote .) "key" .) }}
   {{ else }}
     {{ range ($page.Match .) }}
-      {{ $items = $items | append (dict "resource" . "key" .Name) }}
+      {{ $images = $images | append (dict "resource" . "key" .Name) }}
     {{ end }}
   {{ end }}
 {{ end }}
@@ -47,7 +46,7 @@
     class="absolute right-0 bottom-0 left-0 z-2 mx-[15%] mb-10 flex list-none justify-center p-0"
     data-twe-carousel-indicators>
     {{ $num := 0 }}
-    {{ range $items }}
+    {{ range $images }}
       <button
         type="button"
         data-twe-target="#{{ $id }}"
@@ -62,10 +61,10 @@
   <div
     class="relative w-full overflow-visible after:clear-both after:block after:content-['']"
     style="clip-path: inset(0 0 -9999px 0);">
-    {{ range $index, $item := $items }}
+    {{ range $index, $image := $images }}
     {{ $hiddenClass := cond (eq $index 0) "" "hidden" }}
-    {{ $resource := index $item "resource" }}
-    {{ $key := index $item "key" }}
+    {{ $resource := index $image "resource" }}
+    {{ $key := index $image "key" }}
     {{ $caption := "" }}
     {{ $candidates := slice }}
     {{ if $resource }}
