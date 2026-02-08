@@ -59,8 +59,8 @@
   </div>
 
   <div
-    class="relative w-full overflow-hidden after:clear-both after:block after:content-['']"
-    style="clip-path: inset(0 0 -9999px 0);">
+    class="relative w-full after:clear-both after:block after:content-['']"
+    style="overflow-x: clip; overflow-y: visible;">
     {{ range $index, $image := $images }}
     {{ $hiddenClass := cond (eq $index 0) "" "hidden" }}
     {{ $resource := index $image "resource" }}
