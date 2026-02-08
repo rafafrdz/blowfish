@@ -38,7 +38,7 @@
 {{ if not .Parent }}<div class="width-patch"></div>{{ end }}
 <div
   id="{{ $id }}"
-  class="relative not-prose"
+  class="relative"
   data-twe-carousel-init
   data-twe-ride="carousel"
   data-twe-interval="{{ $interval }}">
@@ -83,7 +83,6 @@
       data-twe-carousel-item
       style="transition-duration: {{ $interval }}ms;"
       {{ if eq $index 0 }}data-twe-carousel-active{{ end }}>
-      <figure class="m-0 relative">
         <div class="single_hero_background relative overflow-hidden" style="aspect-ratio: {{ $aspectx }} / {{ $aspecty }};">
           <img
             src="{{ $resource.RelPermalink }}"
@@ -92,11 +91,10 @@
         </div>
         {{ if $caption }}
         <figcaption
-          class="absolute left-0 right-0 text-left text-sm text-neutral-500 not-prose leading-snug [&>p]:m-0"
-          style="top: calc(100% + 0.5rem);"
+          class="absolute left-0 right-0"
+          style="top: calc(100%);"
         >{{ $caption | markdownify }}</figcaption>
         {{ end }}
-      </figure>
     </div>
     {{ end }}
   </div>

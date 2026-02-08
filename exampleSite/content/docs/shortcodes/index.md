@@ -277,10 +277,10 @@ Captions are matched by key. For local images, use the filename (e.g. `01.jpg`).
 **Example 3:** Add captions
 
 ```md
-{{</* carousel images="gallery/*" captions="{01.jpg:First image,02.jpg:Second image}" */>}}
+{{</* carousel images="gallery/*" captions="{01.jpg:First *image*,02.jpg:Second image with a [link](https://example.com)}" */>}}
 ```
 
-{{< carousel images="gallery/*" captions="{01.jpg:First image,02.jpg:Second image}" >}}
+{{< carousel images="gallery/*" captions="{01.jpg:First *image*,02.jpg:Second image with a [link](https://example.com)}" >}}
 
 <br/><br/><br/>
 
