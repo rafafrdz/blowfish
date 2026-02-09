@@ -960,5 +960,13 @@
       "Blog",
       "Linux Admin"
     ]
+  },
+  {
+    "title": "Radek Průša",
+    "url": "https://prusa.net/",
+    "tags": [
+      "Personal site",
+      "Blog"
+    ]
   }
 ]
