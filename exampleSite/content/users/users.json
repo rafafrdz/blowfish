@@ -990,5 +990,13 @@
       "Personal site",
       "Blog"
     ]
-  }
+  },
+   {
+    "title": "Radek Průša",
+    "url": "https://prusa.net/",
+     "tags": [
+      "Personal site",
+      "Blog"
+    ]
+   }
 ]
