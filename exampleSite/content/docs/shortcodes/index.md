@@ -115,13 +115,14 @@ The alert sign (`+` or `-`) is optional to control whether the admonition is fol
 | `title`   | **Required.** Title shown in the item header.                                                       |
 | `open`    | **Optional.** Set to `true` to have the item open by default.                                       |
 | `header`  | **Optional.** Alias for `title`, kept for compatibility with other shortcodes.                      |
+| `icon`    | **Optional.** Icon name to display before the title.                                                |
 <!-- prettier-ignore-end -->
 
 **Example 1: `mode="open"` (multiple items can be open) + `separated=true`**
 
 ```md
 {{</* accordion mode="open" separated=true */>}}
-  {{</* accordionItem title="Markdown example" open=true */>}}
+  {{</* accordionItem title="Markdown example" icon="code" open=true */>}}
   This item demonstrates Markdown rendering:
   - **Bold text**
   - Lists
@@ -137,7 +138,7 @@ The alert sign (`+` or `-`) is optional to control whether the admonition is fol
 ```
 
 {{< accordion mode="open" separated=true >}}
-  {{< accordionItem title="Markdown example" open=true >}}
+  {{< accordionItem title="Markdown example" icon="code" open=true >}}
   This item demonstrates Markdown rendering:
   - **Bold text**
   - Lists
