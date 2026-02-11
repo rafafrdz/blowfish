@@ -454,15 +454,6 @@
     ]
   },
   {
-    "title": "innerknowing",
-    "url": "https://innerknowing.xyz/en/",
-    "source": "n/a",
-    "tags": [
-      "Personal site",
-      "Modeller"
-    ]
-  },
-  {
     "title": "karlukle.site",
     "url": "https://karlukle.site",
     "source": "n/a",
@@ -516,14 +507,6 @@
       "Portfolio Site",
       "Software Developer",
       "Videogame Developer"
-    ]
-  },
-  {
-    "title": "Beauty Formulation",
-    "url": "https://www.beautyformulation.com/",
-    "source": "n/a",
-    "tags": [
-      "Company site"
     ]
   },
   {
@@ -840,15 +823,6 @@
     ]
   },
   {
-    "title": "Dan Davidson | Where Crypto, Charts and Curiosity Collide",
-    "url": "https://danly.io",
-    "source": "n/a",
-    "tags": [
-      "Personal site",
-      "Technology Blog"
-    ]
-  },
-  {
     "title": "tbsch.de | Smart Home, Technik, Kram",
     "url": "https://tbsch.de",
     "source": "n/a",
@@ -922,7 +896,7 @@
       "DevOps",
       "Personal site",
       "Technology Blog"
-      ]
+    ]
   },
   {
     "title": "monpetitdev.fr",
@@ -961,7 +935,7 @@
       "Linux Admin"
     ]
   },
-   {
+  {
     "title": "GOODJINC",
     "url": "https://goodjinc.com/",
     "source": "https://github.com/GOODJINC/goodjinc.com",
@@ -991,12 +965,12 @@
       "Blog"
     ]
   },
-   {
+  {
     "title": "Radek Průša",
     "url": "https://prusa.net/",
-     "tags": [
+    "tags": [
       "Personal site",
       "Blog"
     ]
-   }
+  }
 ]
