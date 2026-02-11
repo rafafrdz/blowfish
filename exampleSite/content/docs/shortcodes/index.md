@@ -379,6 +379,7 @@ The `figure` shortcode accepts six parameters:
 | `alt` | [Alternative text description](https://moz.com/learn/seo/alt-text) for the image. |
 | `caption` | Markdown for the image caption, which will be displayed below the image. |
 | `class` | Additional CSS classes to apply to the image. |
+| `figureClass` | Additional CSS classes to apply to the `<figure>` wrapper. Useful for galleries. |
 | `href` | URL that the image should be linked to. |
 | `target` | The target attribute for the `href` URL. |
 | `nozoom` | `nozoom=true` disables the image "zoom" functionality. This is most useful in combination with a `href` link. |
@@ -436,6 +437,8 @@ Blowfish also supports automatic conversion of images included using standard Ma
 
 In order to add images to the gallery, use `img` tags for each image and add `class="grid-wXX"` in order for the gallery to be able to identify the column width for each image. The widths available by default start at 10% and go all the way to 100% in 5% increments. For example, to set the width to 65%, set the class to `grid-w65`. Additionally, widths for 33% and 66% are also available in order to build galleries with 3 cols. You can also leverage tailwind's responsive indicators to have a reponsive grid.
 
+If you need captions, you can use the `figure` shortcode inside the gallery. When doing so, set the grid width on the `figure` using `figureClass`, and use `caption` for the text.
+
 **Example 1: normal gallery**
 
 ```md
@@ -484,6 +487,24 @@ In order to add images to the gallery, use `img` tags for each image and add `cl
   <img src="gallery/05.jpg" class="grid-w50 md:grid-w33 xl:grid-w25" />
   <img src="gallery/06.jpg" class="grid-w50 md:grid-w33 xl:grid-w25" />
   <img src="gallery/07.jpg" class="grid-w50 md:grid-w33 xl:grid-w25" />
+{{< /gallery >}}
+
+<br/><br/><br/>
+
+**Example 3: gallery with captions (using `figure`)**
+
+```md
+{{</* gallery */>}}
+  {{</* figure src="gallery/01.jpg" alt="Gallery image 1" caption="First caption" figureClass="grid-w33" */>}}
+  {{</* figure src="gallery/02.jpg" alt="Gallery image 2" caption="Second caption" figureClass="grid-w33" */>}}
+  {{</* figure src="gallery/03.jpg" alt="Gallery image 3" caption="Third caption" figureClass="grid-w33" */>}}
+{{</* /gallery */>}}
+```
+
+{{< gallery >}}
+  {{< figure src="gallery/01.jpg" alt="Gallery image 1" caption="First caption" figureClass="grid-w33" >}}
+  {{< figure src="gallery/02.jpg" alt="Gallery image 2" caption="Second caption" figureClass="grid-w33" >}}
+  {{< figure src="gallery/03.jpg" alt="Gallery image 3" caption="Third caption" figureClass="grid-w33" >}}
 {{< /gallery >}}
 
 <br/><br/><br/>
