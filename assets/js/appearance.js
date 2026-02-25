@@ -1,25 +1,88 @@
-const sitePreference = document.documentElement.getAttribute("data-default-appearance");
-const userPreference = localStorage.getItem("appearance");
+const root = document.documentElement;
+const sitePreference = root.getAttribute("data-default-appearance") || "light";
+const autoAppearance = root.getAttribute("data-auto-appearance") === "true";
+const appearanceStorageKey = "appearance";
+const prefersDarkQuery = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
 
-if ((sitePreference === "dark" && userPreference === null) || userPreference === "dark") {
-  document.documentElement.classList.add("dark");
+function getUserPreference() {
+  try {
+    const preference = localStorage.getItem(appearanceStorageKey);
+    if (preference === "light" || preference === "dark") {
+      return preference;
+    }
+  } catch (_) {
+    // Ignore storage failures (e.g. privacy mode restrictions)
+  }
+  return null;
 }
 
-if (document.documentElement.getAttribute("data-auto-appearance") === "true") {
-  if (
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches &&
-    userPreference !== "light"
-  ) {
-    document.documentElement.classList.add("dark");
+function setUserPreference(preference) {
+  try {
+    localStorage.setItem(appearanceStorageKey, preference);
+  } catch (_) {
+    // Ignore storage failures (e.g. privacy mode restrictions)
   }
-  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
-    if (event.matches) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
+}
+
+function clearUserPreference() {
+  try {
+    localStorage.removeItem(appearanceStorageKey);
+  } catch (_) {
+    // Ignore storage failures (e.g. privacy mode restrictions)
+  }
+}
+
+function applyAppearance(targetAppearance) {
+  root.classList.toggle("dark", targetAppearance === "dark");
+}
+
+function getSystemAppearance() {
+  return prefersDarkQuery?.matches ? "dark" : "light";
+}
+
+function getTargetAppearance() {
+  return root.classList.contains("dark") ? "dark" : "light";
+}
+
+function resolveAppearance() {
+  const userPreference = getUserPreference();
+  if (userPreference) {
+    return userPreference;
+  }
+  if (autoAppearance) {
+    return getSystemAppearance();
+  }
+  return sitePreference === "dark" ? "dark" : "light";
+}
+
+function syncAppearance(nextAppearance) {
+  applyAppearance(nextAppearance);
+  if (typeof updateMeta === "function") {
+    updateMeta();
+  }
+  if (typeof updateMermaidTheme === "function") {
+    updateMermaidTheme();
+  }
+  if (typeof updateLogo === "function") {
+    updateLogo(nextAppearance);
+  }
+}
+
+syncAppearance(resolveAppearance());
+
+if (autoAppearance && prefersDarkQuery) {
+  const applySystemChange = (event) => {
+    if (getUserPreference()) {
+      return;
     }
-  });
+    syncAppearance(event.matches ? "dark" : "light");
+  };
+
+  if (typeof prefersDarkQuery.addEventListener === "function") {
+    prefersDarkQuery.addEventListener("change", applySystemChange);
+  } else if (typeof prefersDarkQuery.addListener === "function") {
+    prefersDarkQuery.addListener(applySystemChange);
+  }
 }
 
 // Mermaid dark mode support
@@ -54,44 +117,35 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const switcher = document.getElementById("appearance-switcher");
   const switcherMobile = document.getElementById("appearance-switcher-mobile");
 
-  updateMeta();
-  this.updateLogo?.(getTargetAppearance());
-
   // Initialize mermaid theme on page load
   updateMermaidTheme();
 
+  if (typeof updateLogo === "function") {
+    updateLogo(getTargetAppearance());
+  }
+
   if (switcher) {
     switcher.addEventListener("click", () => {
-      document.documentElement.classList.toggle("dark");
-      var targetAppearance = getTargetAppearance();
-      localStorage.setItem(
-        "appearance",
-        targetAppearance
-      );
-      updateMeta();
-      updateMermaidTheme();
-      this.updateLogo?.(targetAppearance);
+      const targetAppearance = getTargetAppearance() === "dark" ? "light" : "dark";
+      setUserPreference(targetAppearance);
+      syncAppearance(targetAppearance);
     });
     switcher.addEventListener("contextmenu", (event) => {
       event.preventDefault();
-      localStorage.removeItem("appearance");
+      clearUserPreference();
+      syncAppearance(resolveAppearance());
     });
   }
   if (switcherMobile) {
     switcherMobile.addEventListener("click", () => {
-      document.documentElement.classList.toggle("dark");
-      var targetAppearance = getTargetAppearance();
-      localStorage.setItem(
-        "appearance",
-        targetAppearance
-      );
-      updateMeta();
-      updateMermaidTheme();
-      this.updateLogo?.(targetAppearance);
+      const targetAppearance = getTargetAppearance() === "dark" ? "light" : "dark";
+      setUserPreference(targetAppearance);
+      syncAppearance(targetAppearance);
     });
     switcherMobile.addEventListener("contextmenu", (event) => {
       event.preventDefault();
-      localStorage.removeItem("appearance");
+      clearUserPreference();
+      syncAppearance(resolveAppearance());
     });
   }
 });
@@ -130,10 +184,6 @@ var updateLogo = (targetAppearance) => {
 }
 {{ end }}
 {{- end }}
-
-var getTargetAppearance = () => {
-  return document.documentElement.classList.contains("dark") ? "dark" : "light"
-}
 
 window.addEventListener("DOMContentLoaded", (event) => {
   const scroller = document.getElementById("top-scroller");
