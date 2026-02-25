@@ -1,12 +1,15 @@
 /* Slate scheme */
 
-
 :root {
-
   --color-link: 58, 84, 215;
-  --color-link-invert:   45, 174, 255 ;
-  --invert-quote-borders: 255,255,255;
+  --color-link-invert: 45, 174, 255;
+  --invert-quote-borders: 255, 255, 255;
+}
 
+.prose {
+  --tw-prose-links: rgba(var(--color-link), 1);
+  --tw-prose-invert-links: rgba(var(--color-link-invert), 1);
+  --tw-prose-invert-quote-borders: rgba(var(--invert-quote-borders), 1);
 }
 
 .max-w-prose {
@@ -22,20 +25,24 @@
 
 .prose .chroma:is(.dark *) {
   border: 2px solid rgb(53, 53, 53); /* Ajusta el grosor y color */
-  background-color:rgb(23, 25, 27)
-
+  background-color: rgb(23, 25, 27);
 }
 
-.dark\:prose-invert:is(.dark *) :where(code):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
-  background-color:rgb(23, 25, 27)
+.dark\:prose-invert:is(.dark *)
+  :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  background-color: rgb(23, 25, 27);
 }
-
 
 .chroma .k,
 .chroma .kd,
 .chroma .kn {
   --tw-text-opacity: 1;
-  color: rgba(215, 58, 73, var(--tw-text-opacity)); /* Rojo para palabras clave */
+  color: rgba(
+    215,
+    58,
+    73,
+    var(--tw-text-opacity)
+  ); /* Rojo para palabras clave */
 }
 
 .chroma .m {
@@ -55,7 +62,12 @@
 
 .chroma .n {
   --tw-text-opacity: 1;
-  color: rgba(111, 66, 193, var(--tw-text-opacity)); /* Púrpura para funciones */
+  color: rgba(
+    111,
+    66,
+    193,
+    var(--tw-text-opacity)
+  ); /* Púrpura para funciones */
 }
 
 .chroma .s,
@@ -70,7 +82,12 @@
 .chroma .c1,
 .chroma .cs {
   --tw-text-opacity: 1;
-  color: rgba(106, 115, 125, var(--tw-text-opacity)); /* Gris para comentarios */
+  color: rgba(
+    106,
+    115,
+    125,
+    var(--tw-text-opacity)
+  ); /* Gris para comentarios */
   font-style: italic; /* Opcional, para diferenciar */
 }
 
@@ -86,7 +103,12 @@
 
 .chroma .nf {
   --tw-text-opacity: 1;
-  color: rgba(111, 66, 193, var(--tw-text-opacity)); /* Púrpura para nombres de funciones */
+  color: rgba(
+    111,
+    66,
+    193,
+    var(--tw-text-opacity)
+  ); /* Púrpura para nombres de funciones */
 }
 
 .chroma .ne,
@@ -98,12 +120,27 @@
 .chroma .err,
 .chroma .gd {
   --tw-text-opacity: 1;
-  color: rgba(179, 29, 40, var(--tw-text-opacity)); /* Rojo oscuro para errores */
-  background-color: rgba(255, 238, 240, var(--tw-text-opacity)); /* Fondo rojo claro */
+  color: rgba(
+    179,
+    29,
+    40,
+    var(--tw-text-opacity)
+  ); /* Rojo oscuro para errores */
+  background-color: rgba(
+    255,
+    238,
+    240,
+    var(--tw-text-opacity)
+  ); /* Fondo rojo claro */
 }
 
 .chroma .gi {
   --tw-text-opacity: 1;
   color: rgba(34, 134, 58, var(--tw-text-opacity)); /* Verde para añadidos */
-  background-color: rgba(240, 255, 244, var(--tw-text-opacity)); /* Fondo verde claro */
+  background-color: rgba(
+    240,
+    255,
+    244,
+    var(--tw-text-opacity)
+  ); /* Fondo verde claro */
 }
